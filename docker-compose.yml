@@ -2,13 +2,13 @@ version: '2.3'
 
 x-lagoon-project:
   # Lagoon project name (leave `&lagoon-project` when you edit this)
-  &lagoon-project redirector-example
+  &lagoon-project wo-webutil-redirector
 
 x-environment:
   &default-environment
     LAGOON_PROJECT: *lagoon-project
     # Route that should be used locally
-    LAGOON_ROUTE: https://redirector-example.docker.amazee.io
+    LAGOON_ROUTE: https://webutil-redirector.docker.amazee.io
 
 services:
   nginx:
@@ -19,7 +19,7 @@ services:
         CLI_IMAGE: *lagoon-project # Inject the name of the cli image
     labels:
       lagoon.type: nginx
-      LAGOON_LOCALDEV_URL: nginx-redirector.com.docker.amazee.io # generate another route for nginx, by default we go to varnish
+      LAGOON_LOCALDEV_URL: webutil-redirector-varnish.docker.amazee.io # generate another route for nginx, by default we go to varnish
     networks:
       - amazeeio-network
       - default

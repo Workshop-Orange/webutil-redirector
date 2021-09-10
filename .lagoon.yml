@@ -1,10 +1,12 @@
 docker-compose-yaml: docker-compose.yml
 
-# environments:
-#   main:
-#     routes:
-#       - nginx:
-#         - yourdomain.example.com:
-#             tls-acme: false
-#         - yourdomain2.example.com:
-#             tls-acme: false
+environments:
+  main:
+    routes:
+      - nginx:
+        - dev.proworkers.com:
+            tls-acme: false
+        - staging.proworkers.com:
+            tls-acme: false
+        - partners.amazee.io:
+            tls-acme: false
